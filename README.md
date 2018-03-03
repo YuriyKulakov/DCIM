@@ -2,7 +2,7 @@
 
 NetBox-NG это форк проэкта Netbox.  это инструмент управления IP-адресами (IPAM) и центра обработки данных (DCIM). NetBox, первоначально разработанный группой сетевого проектирования [DigitalOcean](https://www.digitalocean.com/), был разработан специально для удовлетворения потребностей инженеров сети и инфраструктуры.
 
-NetBox-NG работает как веб-приложение поверх [Django](https://www.djangoproject.com/) Python framework c  базой данныx [PostgreSQL](http://www.postgresql.org/) . Полный список требований см. В разделе `requirements.txt`. Код оригенального проэкта Netbox доступен [on GitHub](https://github.com/digitalocean/netbox).
+NetBox-NG работает как веб-приложение поверх [Django](https://www.djangoproject.com/) Python framework c  базой данныx [PostgreSQL](http://www.postgresql.org/) . Полный список требований см. В разделе `requirements.txt`. Код оригинального проэкта Netbox доступен [on GitHub](https://github.com/digitalocean/netbox).
 
 Полную документацию для NetBox можно найти по адресу [Read the Docs](http://netbox.readthedocs.io/en/stable/).
 
