@@ -1,0 +1,23 @@
+{% extends '_base.html' %}
+{% load helpers %}
+
+{% block content %}
+<div class="pull-right">
+    {% if perms.dcim.add_devicerole %}
+        <a href="{% url 'dcim:devicerole_add' %}" class="btn btn-primary">
+            <span class="fa fa-plus" aria-hidden="true"></span>
+            Add a device role
+        </a>
+        <a href="{% url 'dcim:devicerole_import' %}" class="btn btn-info">
+            <span class="fa fa-download" aria-hidden="true"></span>
+            Import device roles
+        </a>
+    {% endif %}
+</div>
+<h1>{% block title %}Device Roles{% endblock %}</h1>
+<div class="row">
+	<div class="col-md-12">
+        {% include 'utilities/obj_table.html' with bulk_delete_url='dcim:devicerole_bulk_delete' %}
+    </div>
+</div>
+{% endblock %}

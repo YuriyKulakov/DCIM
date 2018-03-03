@@ -1,0 +1,24 @@
+{% extends '_base.html' %}
+{% load helpers %}
+
+{% block content %}
+<div class="pull-right">
+    {% if perms.dcim.add_region %}
+        <a href="{% url 'dcim:region_add' %}" class="btn btn-primary">
+            <span class="fa fa-plus" aria-hidden="true"></span>
+            Add a region
+        </a>
+        <a href="{% url 'dcim:region_import' %}" class="btn btn-info">
+            <span class="fa fa-download" aria-hidden="true"></span>
+            Import regions
+        </a>
+    {% endif %}
+    {% include 'inc/export_button.html' with obj_type='regions' %}
+</div>
+<h1>{% block title %}Regions{% endblock %}</h1>
+<div class="row">
+	<div class="col-md-12">
+        {% include 'utilities/obj_table.html' with bulk_delete_url='dcim:region_bulk_delete' %}
+    </div>
+</div>
+{% endblock %}

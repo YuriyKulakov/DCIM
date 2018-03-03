@@ -1,0 +1,27 @@
+{% extends '_base.html' %}
+{% load helpers %}
+
+{% block content %}
+<div class="pull-right">
+    {% if perms.dcim.add_rackgroup %}
+        <a href="{% url 'dcim:rackgroup_add' %}" class="btn btn-primary">
+            <span class="fa fa-plus" aria-hidden="true"></span>
+            Add a rack group
+        </a>
+        <a href="{% url 'dcim:rackgroup_import' %}" class="btn btn-info">
+            <span class="fa fa-download" aria-hidden="true"></span>
+            Import rack groups
+        </a>
+    {% endif %}
+    {% include 'inc/export_button.html' with obj_type='rack groups' %}
+</div>
+<h1>{% block title %}Rack Groups{% endblock %}</h1>
+<div class="row">
+	<div class="col-md-9">
+        {% include 'utilities/obj_table.html' with bulk_delete_url='dcim:rackgroup_bulk_delete' %}
+    </div>
+    <div class="col-md-3">
+		{% include 'inc/search_panel.html' %}
+    </div>
+</div>
+{% endblock %}

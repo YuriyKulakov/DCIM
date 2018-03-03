@@ -1,0 +1,41 @@
+{% extends '_base.html' %}
+{% load humanize %}
+{% load helpers %}
+
+{% block content %}
+<div class="pull-right">
+    {% if request.GET.family == '6' %}
+        <a href="{% url 'ipam:rir_list' %}" class="btn btn-default">
+            <span class="fa fa-table" aria-hidden="true"></span>
+            IPv4 Stats
+        </a>
+    {% else %}
+        <a href="{% url 'ipam:rir_list' %}?family=6{% if request.GET %}&{{ request.GET.urlencode }}{% endif %}" class="btn btn-default">
+            <span class="fa fa-table" aria-hidden="true"></span>
+            IPv6 Stats
+        </a>
+    {% endif %}
+    {% if perms.ipam.add_rir %}
+        <a href="{% url 'ipam:rir_add' %}" class="btn btn-primary">
+            <span class="fa fa-plus" aria-hidden="true"></span>
+            Add a RIR
+        </a>
+        <a href="{% url 'ipam:rir_import' %}" class="btn btn-info">
+            <span class="fa fa-download" aria-hidden="true"></span>
+            Import RIRs
+        </a>
+    {% endif %}
+</div>
+<h1>{% block title %}RIRs{% endblock %}</h1>
+<div class="row">
+	<div class="col-md-9">
+        {% include 'utilities/obj_table.html' with bulk_delete_url='ipam:rir_bulk_delete' %}
+        {% if request.GET.family == '6' %}
+            <div class="alert alert-info pull-right"><strong>Note:</strong> Numbers shown indicate /64 prefixes.</div>
+        {% endif %}
+    </div>
+	<div class="col-md-3">
+		{% include 'inc/search_panel.html' %}
+	</div>
+</div>
+{% endblock %}
