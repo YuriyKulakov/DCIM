@@ -1,0 +1,13 @@
+*.pyc
+/org
+/netbox/netbox/configuration.py
+/netbox/netbox/ldap_config.py
+/netbox/reports/*
+!/netbox/reports/__init__.py
+/netbox/static
+.idea
+/*.sh
+!upgrade.sh
+fabfile.py
+*.swp
+gunicorn_config.py

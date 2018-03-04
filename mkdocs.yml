@@ -1,0 +1,35 @@
+site_name: NetBox
+
+pages:
+    - 'Introduction': 'index.md'
+    - 'Installation':
+        - 'PostgreSQL': 'installation/postgresql.md'
+        - 'NetBox': 'installation/netbox.md'
+        - 'Web Server': 'installation/web-server.md'
+        - 'LDAP (Optional)': 'installation/ldap.md'
+        - 'Upgrading': 'installation/upgrading.md'
+        - 'Migrating to Python3': 'installation/migrating-to-python3.md'
+    - 'Configuration':
+        - 'Mandatory Settings': 'configuration/mandatory-settings.md'
+        - 'Optional Settings': 'configuration/optional-settings.md'
+    - 'Data Model':
+        - 'Circuits': 'data-model/circuits.md'
+        - 'DCIM': 'data-model/dcim.md'
+        - 'IPAM': 'data-model/ipam.md'
+        - 'Secrets': 'data-model/secrets.md'
+        - 'Tenancy': 'data-model/tenancy.md'
+        - 'Virtualization': 'data-model/virtualization.md'
+        - 'Extras': 'data-model/extras.md'
+    - 'API':
+        - 'Overview': 'api/overview.md'
+        - 'Authentication': 'api/authentication.md'
+        - 'Working with Secrets': 'api/working-with-secrets.md'
+        - 'Examples': 'api/examples.md'
+    - 'Miscellaneous':
+        - 'Reports': 'miscellaneous/reports.md'
+        - 'Shell': 'miscellaneous/shell.md'
+    - 'Development':
+        - 'Utility Views': 'development/utility-views.md'
+
+markdown_extensions:
+    - admonition:
