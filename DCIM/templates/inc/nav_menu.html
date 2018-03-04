@@ -1,5 +1,196 @@
 {% load static from staticfiles %}
 {% load helpers %}
+<nav id="styleguideSidebar" class="sidebar">
+    <div class="sidebar__header">
+        <div class="sidebar__header-title">{{ request.user }}</div>
+    </div>
+        <ul class="sidebar__drawer">
+        <li class="sidebar__item">
+            <a a href="{% url 'home' %} ">
+                <span class="icon-home"></span>
+                <span class="qtr-margin-left">Home</span>
+            </a>
+        </li>
+
+        <li class="sidebar__drawer">
+            <a>
+            <span class="icon-minimize"></span>
+            <span class="qtr-margin-left">Sites</span>
+            </a>
+            <ul>
+                <li class="sidebar__item"><a href="http://bx.cisco.com/cbx-portal/" target="_blank">Cisco Brand Exchange</a></li>
+                <li class="sidebar__item"><a href="https://cisco.jiveon.com/groups/atlantic/pages/about" target="_blank">Jive Home Page</a></li>
+                <li class="sidebar__item"><a href="https://cisco.jiveon.com/docs/DOC-1575948" target="_blank">Jive FAQ</a></li>
+                <li class="sidebar__item"><a href="https://wwwin-gitlab-sjc.cisco.com/cisco-ui-angular-1" target="_blank">Angular 1.x Components</a></li>
+                <li class="sidebar__item"><a href="https://wwwin-gitlab-sjc.cisco.com/cisco-ui-angular-4" target="_blank">Angular 4.x Components</a></li>
+                <li class="sidebar__item"><a href="https://wwwin-gitlab-sjc.cisco.com/cisco-ui-react" target="_blank">React Components</a></li>
+            </ul>
+        </li>
+        <li class="sidebar__drawer">
+            <a>For Designers</a>
+            <ul>
+                <li class="sidebar__item"><a href="public/documents/sketch/CiscoUI-Icons.sketch" download="public/documents/sketch/CiscoUI-Icons.sketch">Icons (Sketch)</a></li>
+                <li class="sidebar__item"><a href="https://github.com/andrewfiorillo/sketch-palettes/archive/master.zip" download="https://github.com/andrewfiorillo/sketch-palettes/archive/master.zip">SketchPalette Plugin</a></li>
+                <li class="sidebar__item"><a href="https://github.com/andrewfiorillo/sketch-palettes" target="_blank">SketchPalette Plugin Instructions</a></li>
+            </ul>
+        </li>
+        <li class="sidebar__drawer">
+            <a>Older Versions</a>
+            <ul>
+                <li class="sidebar__item"><a href="http://swtg-rtp-dev-7/styleguide-dist/1.0.4-official/" target="_blank">Version 1.0.4</a></li>
+                <li class="sidebar__item"><a href="http://swtg-rtp-dev-7/styleguide-dist/1.0.3-official/" target="_blank">Version 1.0.3</a></li>
+                <li class="sidebar__item"><a href="http://swtg-rtp-dev-7/styleguide-dist/1.0.2-official/" target="_blank">Version 1.0.2</a></li>
+                <li class="sidebar__item"><a href="http://swtg-rtp-dev-7/styleguide-dist/1.0.1-official/" target="_blank">Version 1.0.1</a></li>
+                <li class="sidebar__item"><a href="http://swtg-rtp-dev-7/styleguide-dist/1.0.0-official/" target="_blank">Version 1.0.0</a></li>
+            </ul>
+        </li>
+        <li class="sidebar__drawer">
+            <a>Examples</a>
+            <ul>
+                <li class="sidebar__item">
+                    <a href="assets/basic.html" target="_blank">Basic</a>
+                </li>
+                <li class="sidebar__item">
+                    <a href="assets/standard.html" target="_blank">Standard</a>
+                </li>
+                <li class="sidebar__item">
+                    <a href="assets/dashboard.html" target="_blank">Dashboard</a>
+                </li>
+                <li class="sidebar__item">
+                    <a href="assets/stickyfooter.html" target="_blank">Sticky Footer</a>
+                </li>
+            </ul>
+        </li>
+        <li id="rootDrawer" class="sidebar__drawer">
+            <a>Pattern Library</a>
+            <ul>
+                <li class="sidebar__drawer" id="section-base">
+                    <a>Base</a>
+                    <ul>
+                        <li class="sidebar__item depth-2" id="section-base-typography">
+                            <a onclick="doNav('section-base.html#base-typography')">Typography  <span class="label label--tiny label--ghost qtr-margin-left">updated</span></a>
+                        </li>
+                        <li class="sidebar__item depth-2" id="section-base-grid">
+                            <a onclick="doNav('section-base.html#base-grid')">Grid System  <span class="label label--tiny label--success label--bordered qtr-margin-left">new</span></a>
+                        </li>
+                        <li class="sidebar__item depth-2" id="section-base-button">
+                            <a onclick="doNav('section-base.html#base-button')">Button</a>
+                        </li>
+                        <li class="sidebar__item depth-2" id="section-base-checkbox">
+                            <a onclick="doNav('section-base.html#base-checkbox')">Checkbox</a>
+                        </li>
+                        <li class="sidebar__item depth-2" id="section-base-color">
+                            <a onclick="doNav('section-base.html#base-color')">Color</a>
+                        </li>
+                        <li class="sidebar__item depth-2" id="section-base-icons">
+                            <a onclick="doNav('section-base.html#base-icons')">Icons</a>
+                        </li>
+                        <li class="sidebar__item depth-2" id="section-base-input">
+                            <a onclick="doNav('section-base.html#base-input')">Input  <span class="label label--tiny label--ghost qtr-margin-left">updated</span></a>
+                        </li>
+                        <li class="sidebar__item depth-2" id="section-base-label">
+                            <a onclick="doNav('section-base.html#base-label')">Label  <span class="label label--tiny label--ghost qtr-margin-left">updated</span></a>
+                        </li>
+                        <li class="sidebar__item depth-2" id="section-base-link">
+                            <a onclick="doNav('section-base.html#base-link')">Link</a>
+                        </li>
+                        <li class="sidebar__item depth-2" id="section-base-list">
+                            <a onclick="doNav('section-base.html#base-list')">List</a>
+                        </li>
+                        <li class="sidebar__item depth-2" id="section-base-panel">
+                            <a onclick="doNav('section-base.html#base-panel')">Panel  <span class="label label--tiny label--ghost qtr-margin-left">updated</span></a>
+                        </li>
+                        <li class="sidebar__item depth-2" id="section-base-radio">
+                            <a onclick="doNav('section-base.html#base-radio')">Radio</a>
+                        </li>
+                        <li class="sidebar__item depth-2" id="section-base-section">
+                            <a onclick="doNav('section-base.html#base-section')">Section</a>
+                        </li>
+                        <li class="sidebar__item depth-2" id="section-base-select">
+                            <a onclick="doNav('section-base.html#base-select')">Select</a>
+                        </li>
+                        <li class="sidebar__item depth-2" id="section-base-switch">
+                            <a onclick="doNav('section-base.html#base-switch')">Switch</a>
+                        </li>
+                        <li class="sidebar__item depth-2" id="section-base-table">
+                            <a onclick="doNav('section-base.html#base-table')">Table  <span class="label label--tiny label--ghost qtr-margin-left">updated</span></a>
+                        </li>
+                        <li class="sidebar__item depth-2" id="section-base-thumbnail">
+                            <a onclick="doNav('section-base.html#base-thumbnail')">Thumbnail  <span class="label label--tiny label--ghost qtr-margin-left">updated</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="sidebar__drawer" id="section-components">
+                    <a>Components</a>
+                    <ul>
+                        <li class="sidebar__item depth-2" id="section-components-activity">
+                            <a onclick="doNav('section-components.html#components-activity')">Activity</a>
+                        </li>
+                        <li class="sidebar__item depth-2" id="section-components-alert">
+                            <a onclick="doNav('section-components.html#components-alert')">Alert</a>
+                        </li>
+                        <li class="sidebar__item depth-2" id="section-components-badge">
+                            <a onclick="doNav('section-components.html#components-badge')">Badge</a>
+                        </li>
+                        <li class="sidebar__item depth-2" id="section-components-breadcrumb">
+                            <a onclick="doNav('section-components.html#components-breadcrumb')">Breadcrumb</a>
+                        </li>
+                        <li class="sidebar__item depth-2" id="section-components-figure">
+                            <a onclick="doNav('section-components.html#components-figure')">Figure</a>
+                        </li>
+                        <li class="sidebar__item depth-2" id="section-components-gauge">
+                            <a onclick="doNav('section-components.html#components-gauge')">Gauge</a>
+                        </li>
+                        <li class="sidebar__item depth-2" id="section-components-hero">
+                            <a onclick="doNav('section-components.html#components-hero')">Hero  <span class="label label--tiny label--ghost qtr-margin-left">updated</span></a>
+                        </li>
+                        <li class="sidebar__item depth-2" id="section-components-loader">
+                            <a onclick="doNav('section-components.html#components-loader')">Loader</a>
+                        </li>
+                        <li class="sidebar__item depth-2" id="section-components-rating">
+                            <a onclick="doNav('section-components.html#components-rating')">Rating</a>
+                        </li>
+                        <li class="sidebar__item depth-2" id="section-components-scoreboard">
+                            <a onclick="doNav('section-components.html#components-scoreboard')">Scoreboard  <span class="label label--tiny label--ghost qtr-margin-left">updated</span></a>
+                        </li>
+                        <li class="sidebar__item depth-2" id="section-components-step">
+                            <a onclick="doNav('section-components.html#components-step')">Step</a>
+                        </li>
+                        <li class="sidebar__item depth-2" id="section-components-tab">
+                            <a onclick="doNav('section-components.html#components-tab')">Tab</a>
+                        </li>
+                        <li class="sidebar__item depth-2" id="section-components-toast">
+                            <a onclick="doNav('section-components.html#components-toast')">Toast</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="sidebar__drawer" id="section-layout">
+                    <a>Layout</a>
+                    <ul>
+                        <li class="sidebar__item depth-2" id="section-layout-footer">
+                            <a onclick="doNav('section-layout.html#layout-footer')">Footer  <span class="label label--tiny label--ghost qtr-margin-left">updated</span></a>
+                        </li>
+                        <li class="sidebar__item depth-2" id="section-layout-header">
+                            <a onclick="doNav('section-layout.html#layout-header')">Header</a>
+                        </li>
+                        <li class="sidebar__item depth-2" id="section-layout-sidebar">
+                            <a onclick="doNav('section-layout.html#layout-sidebar')">Sidebar  <span class="label label--tiny label--ghost qtr-margin-left">updated</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="sidebar__drawer" id="section-utilities">
+                    <a>Utilities</a>
+                    <ul>
+                        <li class="sidebar__item depth-2" id="section-utilities-helpers">
+                            <a onclick="doNav('section-utilities.html#utilities-helpers')">Helpers</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+<!--
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -388,7 +579,7 @@
                 {% endif %}
             </ul>
             {% endif %}
-            <ul class="nav navbar-nav navbar-right">
+        <!--    <ul class="nav navbar-nav navbar-right">
                 {% if request.user.is_authenticated %}
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="{{ request.user }}" role="button" aria-haspopup="true" aria-expanded="false">
@@ -421,4 +612,4 @@
             </form>
         </div>
     </div>
-</nav>
+</nav> -->
