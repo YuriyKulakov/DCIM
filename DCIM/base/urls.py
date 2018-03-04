@@ -6,10 +6,10 @@ from django.contrib import admin
 from django.views.static import serve
 from rest_framework_swagger.views import get_swagger_view
 
-from netbox.views import APIRootView, HomeView, SearchView
+from base.views import APIRootView, HomeView, SearchView
 from users.views import LoginView, LogoutView
 
-swagger_view = get_swagger_view(title='NetBox API')
+swagger_view = get_swagger_view(title='DCIM API')
 
 _patterns = [
 

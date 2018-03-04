@@ -8,7 +8,7 @@ from django.contrib.messages import constants as messages
 from django.core.exceptions import ImproperlyConfigured
 
 try:
-    from main import configuration
+    from base import configuration
 except ImportError:
     raise ImproperlyConfigured(
         "Configuration file is not present. Please define netbox/netbox/configuration.py per the documentation."
@@ -75,7 +75,7 @@ CSRF_TRUSTED_ORIGINS = ALLOWED_HOSTS
 # Attempt to import LDAP configuration if it has been defined
 LDAP_IGNORE_CERT_ERRORS = False
 try:
-    from netbox.ldap_config import *
+    from base.ldap_config import *
     LDAP_CONFIGURED = True
 except ImportError:
     LDAP_CONFIGURED = False
@@ -100,7 +100,7 @@ if LDAP_CONFIGURED:
     except ImportError:
         raise ImproperlyConfigured(
             "LDAP authentication has been configured, but django-auth-ldap is not installed. You can remove "
-            "netbox/ldap_config.py to disable LDAP."
+            "base/ldap_config.py to disable LDAP."
         )
 
 # Database
@@ -116,7 +116,7 @@ EMAIL_HOST_USER = EMAIL.get('USERNAME')
 EMAIL_HOST_PASSWORD = EMAIL.get('PASSWORD')
 EMAIL_TIMEOUT = EMAIL.get('TIMEOUT', 10)
 SERVER_EMAIL = EMAIL.get('FROM_EMAIL')
-EMAIL_SUBJECT_PREFIX = '[NetBox] '
+EMAIL_SUBJECT_PREFIX = '[DCIM] '
 
 # Installed applications
 INSTALLED_APPS = (
@@ -163,7 +163,7 @@ MIDDLEWARE = (
     'utilities.middleware.APIVersionMiddleware',
 )
 
-ROOT_URLCONF = 'main.urls'
+ROOT_URLCONF = 'base.urls'
 
 TEMPLATES = [
     {
@@ -184,7 +184,7 @@ TEMPLATES = [
 ]
 
 # WSGI
-WSGI_APPLICATION = 'main.wsgi.application'
+WSGI_APPLICATION = 'base.wsgi.application'
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 USE_X_FORWARDED_HOST = True
 
@@ -227,23 +227,23 @@ REST_FRAMEWORK = {
     'ALLOWED_VERSIONS': [REST_FRAMEWORK_VERSION],
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.SessionAuthentication',
-        'netbox.api.TokenAuthentication',
+        'base.api.TokenAuthentication',
     ),
     'DEFAULT_FILTER_BACKENDS': (
         'django_filters.rest_framework.DjangoFilterBackend',
     ),
-    'DEFAULT_PAGINATION_CLASS': 'netbox.api.OptionalLimitOffsetPagination',
+    'DEFAULT_PAGINATION_CLASS': 'base.api.OptionalLimitOffsetPagination',
     'DEFAULT_PERMISSION_CLASSES': (
-        'netbox.api.TokenPermissions',
+        'base.api.TokenPermissions',
     ),
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
-        'netbox.api.FormlessBrowsableAPIRenderer',
+        'base.api.FormlessBrowsableAPIRenderer',
     ),
     'DEFAULT_VERSION': REST_FRAMEWORK_VERSION,
     'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.AcceptHeaderVersioning',
     'PAGE_SIZE': PAGINATE_COUNT,
-    'VIEW_NAME_FUNCTION': 'netbox.api.get_view_name',
+    'VIEW_NAME_FUNCTION': 'base.api.get_view_name',
 }
 
 # Django debug toolbar
